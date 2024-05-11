@@ -20,7 +20,7 @@ public class MainCliente {
 
 			Registry registroCliente = LocateRegistry.getRegistry("192.168.20.31",2024);
 			RemoteInterface rmi = (RemoteInterface) registroCliente.lookup("Ventas");
-			rmi.leerArreglo(arregloLocal);
+			rmi.mostrarArreglo(arregloLocal);
 			System.out.println("Se envio todo");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
