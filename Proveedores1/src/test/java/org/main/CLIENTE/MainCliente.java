@@ -18,7 +18,7 @@ public class MainCliente {
 			arregloLocal[4] = 2;
 			arregloLocal[5] = 1;
 
-			Registry registroCliente = LocateRegistry.getRegistry("192.168.20.31",2024);
+			Registry registroCliente = LocateRegistry.getRegistry("192.168.20.29",2024);
 			RemoteInterface rmi = (RemoteInterface) registroCliente.lookup("Ventas");
 			rmi.mostrarArreglo(arregloLocal);
 			System.out.println("Se envio todo");

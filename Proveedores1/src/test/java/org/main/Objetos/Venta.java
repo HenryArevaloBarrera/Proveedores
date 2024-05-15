@@ -1,6 +1,8 @@
 package org.main.Objetos;
 import lombok.*;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -9,7 +11,7 @@ import lombok.*;
 
 public class Venta {
     private int idVenta;
-    private String fechaVenta;
+    private Date fechaVenta;
     private int idCliente;
     private double total;
 

@@ -1,26 +1,24 @@
 package org.main.Conexion;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexion {
-    public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/proveedor?serverTimezone=UTC";
-        String user = "root";
-        String password = "";
-        System.out.println("Conectando a la base de datos....");
+    private static final String URL = "jdbc:mysql://localhost:3306/proveedor?serverTimezone=UTC";
+    private static final String USER = "root";
+    private static final String PASSWORD = "0000";
+
+    public static Connection obtenerConexion() {
+        Connection connection = null;
         try {
-            Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("conectado con la base de datos");
 
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM tipoproducto");
-            System.out.println("Conectado a la base de datos");
-
-            connection.close();
-            statement.close();
-            resultSet.close();
         } catch (SQLException e) {
-
             System.out.println("No se puede conectar con la base de datos");
+            e.printStackTrace();
         }
-        }
+        return connection;
     }
+}
