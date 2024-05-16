@@ -1,7 +1,7 @@
-package org.main.Controlador;
+package org.main.SERVIDOR;
 
 import org.main.Conexion.Conexion;
-import org.main.Objetos.*;
+import org.main.Entidades.*;
 
         import java.sql.*;
         import java.util.ArrayList;
@@ -65,7 +65,7 @@ public class TraerDatos {
                             resultSet.getInt("ID_Venta"),
                             resultSet.getInt("ID_Producto"),
                             resultSet.getInt("Cantidad"),
-                            resultSet.getDouble("PrecioUnitario")
+                            (int) resultSet.getDouble("PrecioUnitario")
                     );
                     detallesVentas.add(detalleVenta);
                 }
@@ -104,11 +104,11 @@ public class TraerDatos {
                  ResultSet resultSet = statement.executeQuery("SELECT * FROM venta")) {
                 while (resultSet.next()) {
                     Venta venta = new Venta(
-                            resultSet.getInt("ID_Venta"),
-                            resultSet.getDate("FechaVenta"),
-                            resultSet.getInt("ID_Cliente"),
-                            resultSet.getDouble("Total")
-                    );
+                                                resultSet.getInt("ID_Venta"),
+                            resultSet.getDouble("Total"),
+                                                resultSet.getInt("ID_Cliente"),
+                            resultSet.getDate("FechaVenta")
+                                        );
                     ventas.add(venta);
                 }
             }
